@@ -40,19 +40,18 @@ You may assume the two numbers do not contain any leading zero, except the numbe
 ## Solution
 
 ```golang
-/*
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
+
+/**
  * Definition for singly-linked list.
  * type ListNode struct {
  *     Val int
  *     Next *ListNode
  * }
  */
-
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	dummyHead := &ListNode{}
 	p, q, curr := l1, l2, dummyHead

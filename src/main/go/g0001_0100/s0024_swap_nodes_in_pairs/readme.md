@@ -35,19 +35,18 @@ Given a linked list, swap every two adjacent nodes and return its head. You must
 ## Solution
 
 ```golang
-/*
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
+
+/**
  * Definition for singly-linked list.
  * type ListNode struct {
  *     Val int
  *     Next *ListNode
  * }
  */
-
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
 func swapPairs(head *ListNode) *ListNode {
 	if head == nil || head.Next == nil {
 		return head

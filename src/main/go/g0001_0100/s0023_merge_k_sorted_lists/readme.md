@@ -44,19 +44,18 @@ _Merge all the linked-lists into one sorted linked-list and return it._
 import "container/heap"
 
 
-/*
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
+
+/**
  * Definition for singly-linked list.
  * type ListNode struct {
  *     Val int
  *     Next *ListNode
  * }
  */
-
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
 func mergeKLists(lists []*ListNode) *ListNode {
 	var h minHeap
 	for _, node := range lists {

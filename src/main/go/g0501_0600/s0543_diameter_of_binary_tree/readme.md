@@ -35,6 +35,12 @@ The **length** of a path between two nodes is represented by the number of edges
 ## Solution
 
 ```golang
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
+
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -43,20 +49,6 @@ The **length** of a path between two nodes is represented by the number of edges
  *     Right *TreeNode
  * }
  */
-
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
-
 func diameterOfBinaryTree(root *TreeNode) (answer int) {
 	var dfs func(*TreeNode) int
 	dfs = func(node *TreeNode) int {
@@ -71,5 +63,12 @@ func diameterOfBinaryTree(root *TreeNode) (answer int) {
 	dfs(root)
 
 	return answer
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }
 ```

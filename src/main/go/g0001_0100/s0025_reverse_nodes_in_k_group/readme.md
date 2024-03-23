@@ -51,20 +51,18 @@ You may not alter the values in the list's nodes, only nodes themselves may be c
 ## Solution
 
 ```golang
-/*
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
+
+/**
  * Definition for singly-linked list.
  * type ListNode struct {
  *     Val int
  *     Next *ListNode
  * }
  */
-
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
-// reverseKGroup reverses nodes in k-group in the linked list.
 func reverseKGroup(head *ListNode, k int) *ListNode {
 	if head == nil || head.Next == nil || k == 1 {
 		return head

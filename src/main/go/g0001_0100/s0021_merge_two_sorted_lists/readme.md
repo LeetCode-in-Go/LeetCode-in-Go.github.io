@@ -36,6 +36,11 @@ Merge two sorted linked lists and return it as a **sorted** list. The list shoul
 ## Solution
 
 ```golang
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
+
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -43,12 +48,6 @@ Merge two sorted linked lists and return it as a **sorted** list. The list shoul
  *     Next *ListNode
  * }
  */
-
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
 func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
 	var sortedListNode, tail *ListNode = &ListNode{}, &ListNode{}
 

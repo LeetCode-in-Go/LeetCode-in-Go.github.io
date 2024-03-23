@@ -40,7 +40,7 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-/*
+/**
  * Definition for a binary tree node.
  * type TreeNode struct {
  *     Val int

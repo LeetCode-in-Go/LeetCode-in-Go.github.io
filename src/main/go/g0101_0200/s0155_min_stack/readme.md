@@ -44,19 +44,48 @@ Implement the `MinStack` class:
 ## Solution
 
 ```golang
-import (
-	"github.com/stretchr/testify/assert"
-	"testing"
-)
+import "math"
 
-func TestMinStack(t *testing.T) {
-	minStack := Constructor()
-	minStack.Push(-2)
-	minStack.Push(0)
-	minStack.Push(-3)
-	assert.Equal(t, -3, minStack.GetMin(), "getMin should return -3")
-	minStack.Pop()
-	assert.Equal(t, 0, minStack.Top(), "top should return 0")
-	assert.Equal(t, -2, minStack.GetMin(), "getMin should return -2")
+type element struct {
+	Val int
+	Min int
 }
+
+type MinStack struct {
+	Stack []element
+	Min   int
+}
+
+func Constructor() MinStack {
+	return MinStack{[]element{}, math.MaxInt32}
+}
+
+func (this *MinStack) Push(val int) {
+	this.Stack = append(this.Stack, element{val, this.Min})
+	this.Min = min(this.Min, val)
+}
+
+func (this *MinStack) Pop() {
+	l := len(this.Stack)
+	this.Min = this.Stack[l-1].Min
+	this.Stack = this.Stack[:l-1]
+}
+
+func (this *MinStack) Top() int {
+	l := len(this.Stack)
+	return this.Stack[l-1].Val
+}
+
+func (this *MinStack) GetMin() int {
+	return this.Min
+}
+
+/**
+ * Your MinStack object will be instantiated and called as such:
+ * obj := Constructor();
+ * obj.Push(val);
+ * obj.Pop();
+ * param_3 := obj.Top();
+ * param_4 := obj.GetMin();
+ */
 ```

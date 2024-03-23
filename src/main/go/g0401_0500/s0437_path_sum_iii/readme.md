@@ -34,6 +34,12 @@ The path does not need to start or end at the root or a leaf, but it must go dow
 ## Solution
 
 ```golang
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
+
 /**
  * Definition for a binary tree node.
  * type TreeNode struct {
@@ -42,13 +48,6 @@ The path does not need to start or end at the root or a leaf, but it must go dow
  *     Right *TreeNode
  * }
  */
-
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
 func pathSum(root *TreeNode, targetSum int) int {
 	mp := make(map[int]int)
 	mp[0] = 1

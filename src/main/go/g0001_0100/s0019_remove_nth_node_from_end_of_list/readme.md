@@ -39,19 +39,18 @@ Given the `head` of a linked list, remove the `nth` node from the end of the lis
 ## Solution
 
 ```golang
-/*
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
+
+/**
  * Definition for singly-linked list.
  * type ListNode struct {
  *     Val int
  *     Next *ListNode
  * }
  */
-
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
 func removeNthFromEnd(head *ListNode, n int) *ListNode {
 	dummy := &ListNode{Next: head}
 	slow, fast := dummy, dummy
