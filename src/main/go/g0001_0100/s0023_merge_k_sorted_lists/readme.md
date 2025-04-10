@@ -43,7 +43,6 @@ _Merge all the linked-lists into one sorted linked-list and return it._
 ```golang
 import "container/heap"
 
-
 type ListNode struct {
 	Val  int
 	Next *ListNode
